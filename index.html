@@ -58,7 +58,69 @@
       // 🧠 Implement a `getAllReversed` method which returns the ints in reverse order
       // ❗ WARNING: except for `getAllReversed`, methods must respect the order of the integers
       // ❗ WARNING: note that none of the methods actually mutate the `ints` property
-
+      constructor() {
+        this.ints = arguments;
+      }
+      getAll () {
+        const intArr = [];
+        for (let i = 0; i < this.ints.length; i++){
+          intArr.push(this.ints[i]);
+        }
+        return intArr;
+      }
+      getEvens () {
+        const intArr = [];
+        for (let i = 0; i < this.ints.length; i++) {
+          if (this.ints[i] % 2 === 0){intArr.push(this.ints[i])};
+        }
+        return intArr;
+      }
+      getNegatives () {
+        const intArr = [];
+        for (let i = 0; i < this.ints.length; i++){
+          if (this.ints[i] < 0){intArr.push(this.ints[i])};
+        }
+        return intArr;
+      }
+      getAllSquared () {
+        const intArr = [];
+        for (let i = 0; i < this.ints.length; i++){
+          intArr.push(this.ints[i] ** 2);
+        }
+        return intArr;
+      }
+      pop () {
+        const intArr = [];
+        for (let i = 0; i < this.ints.length; i++) {
+          intArr.push(this.ints[i]);
+        }
+        this.ints = intArr;
+        return intArr.pop();
+      }
+      push (int) {
+        const intArr = [];
+        for (let i = 0; i < this.ints.length; i++) {
+          intArr.push(this.ints[i]);
+        }
+        intArr.push(int);
+        this.ints = intArr;
+        return intArr;
+      }
+      getEveryNth (n) {
+        const intArr = [];
+        for (let i = 0; i < this.ints.length; i + n){
+          intArr.push(this.ints[i]);
+        }
+        this.ints = intArr;
+        return intArr;
+      }
+      getAllReversed () {
+        const intArr = [];
+        for (let i = this.ints.length - 1; i >= 0; i--){
+          intArr.push(this.ints[i]);
+        }
+        return intArr;
+      }
     }
 
     // 👉 CHALLENGE 2 NerfGun
