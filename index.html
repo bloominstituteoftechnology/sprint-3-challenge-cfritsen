@@ -139,6 +139,43 @@
       //      * When disengaging the safety, return "Safety disabled!"
       // 🌟 HINT: instances need to keep track of their maximum capacity as well as their current capacity
 
+      constructor(maxAmmo) {
+        this.maxAmmo = maxAmmo;
+        this.ammo = maxAmmo;
+        this.safety = true;
+      }
+      shoot () {
+        let result;
+        if (this.safety || this.ammo === 0) {
+          result = "Click!";
+        } else {
+          this.maxAmmo--;
+          result = "Bang!"
+        }
+        return result;
+      }
+      reload (num) {
+        let result;
+        if (typeof num !== "number" || num <= 0){
+          result = "Error reloading!"
+        } else if (this.ammo + num > this.maxAmmo){
+          this.ammo = this.maxAmmo;
+          result = `${this.ammo} projectiles left!`;
+        } else {
+          this.ammo += num;
+          result = `${this.ammo} projectiles left!`;
+        }
+        return result;
+      }
+      toggleSafety () {
+        if (this.safety === true) {
+          this.safety = false;
+          return "Safety disabled!";
+        } else {
+          this.safety = true;
+          return "Safety enabled!";
+        }
+      }
     }
 
     // 👉 CHALLENGE 3 EBook
@@ -157,6 +194,24 @@
       //    ebook.next() // returns null
       // 🌟 HINT: remember about the `slice` method which strings and arrays have
       // ❗ Feel free to implement `back`, although this is not required nor graded
+
+      constructor(bookText, numChar) {
+        this.bookText = bookText;
+        this.numChar = numChar;
+        this.start = 0;
+      }
+      next(){
+        let end = this.start + this.numChar;
+        let result;
+        if (this.start >= this.bookText.length) {
+          return null;
+        } else {
+          result = this.bookText.slice(this.start, end);
+          this.start += this.numChar;
+          end += this.numChar;
+          return result;
+        }
+      }
 
     }
 
@@ -192,6 +247,19 @@
       //      console.log(list) // prints ["a"]
       // 👉 HINT: if you are not feeling confident with map and filter, solve the problem with for loops,
       //      and with the piece of mind of all tests passing, refactor to use map/filter
+
+      constructor() {
+        arguments.forEach(ant => {
+          this.name = ant;
+          this.health = 100;
+        });
+        work() {
+          
+        }
+        feed(antName) {
+          
+        }
+      }
 
     }
 
