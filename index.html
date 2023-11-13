@@ -59,7 +59,7 @@
       // ❗ WARNING: except for `getAllReversed`, methods must respect the order of the integers
       // ❗ WARNING: note that none of the methods actually mutate the `ints` property
       constructor() {
-        this.ints = arguments;
+        this.ints = [...arguments];
       }
       getAll () {
         const intArr = [];
@@ -108,10 +108,9 @@
       }
       getEveryNth (n) {
         const intArr = [];
-        for (let i = 0; i < this.ints.length; i + n){
+        for (let i = 0; i < this.ints.length; i += n){
           intArr.push(this.ints[i]);
         }
-        this.ints = intArr;
         return intArr;
       }
       getAllReversed () {
@@ -149,7 +148,7 @@
         if (this.safety || this.ammo === 0) {
           result = "Click!";
         } else {
-          this.maxAmmo--;
+          this.ammo--;
           result = "Bang!"
         }
         return result;
