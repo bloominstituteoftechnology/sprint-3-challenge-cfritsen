@@ -266,9 +266,20 @@
         }
         return result;
       }
-      /*feed(antName) {
-
-      }*/
+      feed(antName) {
+        let feedCount = 0;
+        for (let i = 0; i < this.ants.length; i++){
+          if (this.ants[i].name === antName){
+            this.ants[i].health += 15;
+            feedCount += 1;
+          }
+        }
+        if (feedCount > 0) {
+          return "Yum!";
+        } else {
+          return `${antName} not found!`
+        }
+      }
     }
 
     // 🧪 TESTS, do not make any changes below this line ===================
